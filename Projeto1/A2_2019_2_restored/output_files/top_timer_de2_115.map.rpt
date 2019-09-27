@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_timer_de2_115
-Mon Sep 23 17:19:14 2019
+Fri Sep 27 17:35:28 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -14,12 +14,14 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: PLL:pll0|altpll:altpll_component
- 12. altpll Parameter Settings by Entity Instance
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: PLL:pll0|altpll:altpll_component
+ 14. altpll Parameter Settings by Entity Instance
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +47,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 23 17:19:14 2019            ;
+; Analysis & Synthesis Status        ; Successful - Fri Sep 27 17:35:28 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; top_timer_de2_115                                ;
 ; Top-level Entity Name              ; top_timer_de2_115                                ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 143                                              ;
-;     Total combinational functions  ; 143                                              ;
-;     Dedicated logic registers      ; 38                                               ;
-; Total registers                    ; 38                                               ;
-; Total pins                         ; 44                                               ;
+; Total logic elements               ; 137                                              ;
+;     Total combinational functions  ; 137                                              ;
+;     Dedicated logic registers      ; 41                                               ;
+; Total registers                    ; 41                                               ;
+; Total pins                         ; 9                                                ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 0                                                ;
 ; Embedded Multiplier 9-bit elements ; 0                                                ;
@@ -185,37 +187,37 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 143          ;
-;                                             ;              ;
-; Total combinational functions               ; 143          ;
-; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 87           ;
-;     -- 3 input functions                    ; 6            ;
-;     -- <=2 input functions                  ; 50           ;
-;                                             ;              ;
-; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 102          ;
-;     -- arithmetic mode                      ; 41           ;
-;                                             ;              ;
-; Total registers                             ; 38           ;
-;     -- Dedicated logic registers            ; 38           ;
-;     -- I/O registers                        ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 44           ;
-; Embedded Multiplier 9-bit elements          ; 0            ;
-; Total PLLs                                  ; 1            ;
-;     -- PLLs                                 ; 1            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; KEY[0]~input ;
-; Maximum fan-out                             ; 38           ;
-; Total fan-out                               ; 663          ;
-; Average fan-out                             ; 2.46         ;
-+---------------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                               ;
++---------------------------------------------+-----------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                       ;
++---------------------------------------------+-----------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 137                                                                         ;
+;                                             ;                                                                             ;
+; Total combinational functions               ; 137                                                                         ;
+; Logic element usage by number of LUT inputs ;                                                                             ;
+;     -- 4 input functions                    ; 69                                                                          ;
+;     -- 3 input functions                    ; 13                                                                          ;
+;     -- <=2 input functions                  ; 55                                                                          ;
+;                                             ;                                                                             ;
+; Logic elements by mode                      ;                                                                             ;
+;     -- normal mode                          ; 93                                                                          ;
+;     -- arithmetic mode                      ; 44                                                                          ;
+;                                             ;                                                                             ;
+; Total registers                             ; 41                                                                          ;
+;     -- Dedicated logic registers            ; 41                                                                          ;
+;     -- I/O registers                        ; 0                                                                           ;
+;                                             ;                                                                             ;
+; I/O pins                                    ; 9                                                                           ;
+; Embedded Multiplier 9-bit elements          ; 0                                                                           ;
+; Total PLLs                                  ; 1                                                                           ;
+;     -- PLLs                                 ; 1                                                                           ;
+;                                             ;                                                                             ;
+; Maximum fan-out node                        ; PLL:pll0|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0] ;
+; Maximum fan-out                             ; 42                                                                          ;
+; Total fan-out                               ; 560                                                                         ;
+; Average fan-out                             ; 2.84                                                                        ;
++---------------------------------------------+-----------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -223,17 +225,12 @@ applicable agreement for further details.
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; |top_timer_de2_115                   ; 143 (29)          ; 38 (14)      ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |top_timer_de2_115                                                            ; work         ;
+; |top_timer_de2_115                   ; 137 (57)          ; 41 (17)      ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |top_timer_de2_115                                                            ; work         ;
 ;    |PLL:pll0|                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|PLL:pll0                                                   ; work         ;
 ;       |altpll:altpll_component|      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|PLL:pll0|altpll:altpll_component                           ; work         ;
 ;          |PLL_altpll:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|PLL:pll0|altpll:altpll_component|PLL_altpll:auto_generated ; work         ;
 ;    |bcd2ssd:bcd0|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd0                                               ; work         ;
-;    |bcd2ssd:bcd1|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd1                                               ; work         ;
-;    |bcd2ssd:bcd2|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd2                                               ; work         ;
-;    |bcd2ssd:bcd3|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd3                                               ; work         ;
-;    |bcd2ssd:bcd4|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd4                                               ; work         ;
-;    |bcd2ssd:bcd5|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd5                                               ; work         ;
-;    |timer:t0|                        ; 72 (72)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|timer:t0                                                   ; work         ;
+;    |timer:t0|                        ; 73 (73)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|timer:t0                                                   ; work         ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -247,15 +244,39 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-----------------------------+-----------------------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; ctrl[0]                                            ; ctrl                ; yes                    ;
+; ctrl[1]                                            ; ctrl                ; yes                    ;
+; ctrl[2]                                            ; ctrl                ; yes                    ;
+; Number of user-specified and inferred latches = 3  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------+
+; Registers Removed During Synthesis                              ;
++---------------------------------------+-------------------------+
+; Register name                         ; Reason for Removal      ;
++---------------------------------------+-------------------------+
+; r_reg[0]                              ; Merged with r_reg360[0] ;
+; r_reg[1]                              ; Merged with r_reg360[1] ;
+; Total Number of Removed Registers = 2 ;                         ;
++---------------------------------------+-------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 38    ;
+; Total registers                              ; 41    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 38    ;
+; Number of registers using Asynchronous Clear ; 41    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -267,9 +288,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|sec_reg[0]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|sec_reg[7]  ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|min_reg[4]  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|hour_reg[5] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|hour_reg[0] ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |top_timer_de2_115|tobcd[3]             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
@@ -669,7 +691,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -679,7 +701,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Sep 23 17:19:08 2019
+    Info: Processing started: Fri Sep 27 17:35:21 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bcd_timer_2019_2 -c top_timer_de2_115
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file top_timer_de2_115.vhd
@@ -695,7 +717,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file PLL.vhd
     Info (12022): Found design unit 1: pll-SYN
     Info (12023): Found entity 1: PLL
 Info (12127): Elaborating entity "top_timer_de2_115" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at top_timer_de2_115.vhd(69): signal "CLOCK_10khz" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at top_timer_de2_115.vhd(71): signal "CLOCK_10khz" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (10041): Inferred latch for "ctrl[0]" at top_timer_de2_115.vhd(89)
+Info (10041): Inferred latch for "ctrl[1]" at top_timer_de2_115.vhd(89)
+Info (10041): Inferred latch for "ctrl[2]" at top_timer_de2_115.vhd(89)
 Info (12128): Elaborating entity "PLL" for hierarchy "PLL:pll0"
 Info (12128): Elaborating entity "altpll" for hierarchy "PLL:pll0|altpll:altpll_component"
 Info (12130): Elaborated megafunction instantiation "PLL:pll0|altpll:altpll_component"
@@ -759,17 +784,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/PLL_
 Info (12128): Elaborating entity "PLL_altpll" for hierarchy "PLL:pll0|altpll:altpll_component|PLL_altpll:auto_generated"
 Info (12128): Elaborating entity "timer" for hierarchy "timer:t0"
 Info (12128): Elaborating entity "bcd2ssd" for hierarchy "bcd2ssd:bcd0"
+Warning (13012): Latch ctrl[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ctrl[1]
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal r_reg360[4]
+Warning (13012): Latch ctrl[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ctrl[2]
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal r_reg360[4]
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 188 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 147 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 143 logic cells
+    Info (21059): Implemented 7 output pins
+    Info (21061): Implemented 137 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 404 megabytes
-    Info: Processing ended: Mon Sep 23 17:19:15 2019
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 400 megabytes
+    Info: Processing ended: Fri Sep 27 17:35:28 2019
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:07
 

@@ -25,12 +25,12 @@ begin
     begin
        if reset='1' then
           sec_reg <= (others=>'0');
-		  min_reg <= (others=>'0');
-		  hour_reg <= (others=>'0');
+		    min_reg <= (others=>'0');
+		    hour_reg <= (others=>'0');
        elsif (clk'event and clk='1') then
           sec_reg <= sec_next;
-		  min_reg <= min_next;
-		  hour_reg <= hour_next;
+		    min_reg <= min_next;
+		    hour_reg <= hour_next;
        end if;
     end process;
 

@@ -51,9 +51,15 @@ architecture top_a3_2019_2 of top_timer_de2_115 is
     signal secU, secT: std_logic_vector(3 downto 0);
     signal minU, minT: std_logic_vector(3 downto 0);
     signal hourU, hourT: std_logic_vector(3 downto 0);
-	signal r_reg, r_next: unsigned(13 downto 0);
-	signal reset,CLOCK_1Hz, CLOCK_10khz: std_logic;
-	signal en : std_logic;
+	 signal r_reg, r_next: unsigned(13 downto 0);
+	 signal r_reg360, r_next360: unsigned(4 downto 0);
+	 signal reset,CLOCK_1Hz, CLOCK_10khz: std_logic;
+	 signal en1hz: std_logic;
+	 signal en360hz: std_logic;
+	 
+	 --signal ctrl: std_logic_vector(2 downto 0);
+	 signal ctrl: unsigned(2 downto 0);
+	 signal tobcd : std_logic_vector(3 downto 0);
 		
 begin
 
@@ -66,29 +72,57 @@ begin
 	begin
 	 if (reset='1') then
 	    r_reg <= (others=>'0');
+		 r_reg360 <= (others=>'0');
 	 elsif (CLOCK_10khz'event and CLOCK_10khz='1') then
 	    r_reg <= r_next;
+		 r_reg360 <= r_next360;
 	 end if;
 	end process;
+	
+
+	
+	
 
 	-- next-state logic
 	r_next  <=  (others=>'0') when r_reg=9999 else 
 				r_reg + 1;
+				
+	r_next360  <=  (others=>'0') when r_reg360=27 else 
+				r_reg360 + 1;			
 	
-	en <= '1' when r_reg = 9999 else '0';
+	
+	ctrl <= (others=>'0') when en360hz = '1' AND ctrl = x"6" else					
+				(ctrl + 1) when en360hz = '1' AND ctrl < x"6" else 
+				ctrl; 
+	
+	
+	tobcd <= SecU when ctrl = "000" else
+				SecT when ctrl = "001" else 
+				MinU when ctrl = "010" else
+				MinT when ctrl = "011" else
+				HourU when ctrl = "100" else
+				HourT when ctrl = "101" else
+				tobcd;
+ 	
 	
 	-- output logic
-	CLOCK_1Hz <= '1' when r_reg < 5000 else
-				 '0';	
+	en360hz <= '1' when r_reg360 = 28 else '0';
+	
+	en1hz <= '1' when r_reg = 9999 else '0'; --- enable em 1 hz
+	
+	
 
-    t0:   timer port map( clk   => CLOCK_1Hz,
+	
+				 
+				 
+    t0:   timer port map( clk   => CLOCK_10khz,
                           reset => reset,
                           secU  => secU,
                           secT  => secT,
                           minU  => minU,
                           minT  => minT,
                           hourU => hourU,
-								  en => en,
+								  en => en1hz,
                           hourT => hourT );
 
     bcd0: bcd2ssd port map (BCD => secU,
