@@ -1,5 +1,5 @@
 Flow report for top_timer_de2_115
-Fri Sep 27 17:35:28 2019
+Fri Oct  4 17:29:15 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Fri Sep 27 17:35:28 2019            ;
+; Flow Status                        ; Successful - Fri Oct  4 17:29:15 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; top_timer_de2_115                                ;
 ; Top-level Entity Name              ; top_timer_de2_115                                ;
 ; Family                             ; Cyclone IV E                                     ;
 ; Device                             ; EP4CE115F29C7                                    ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 137                                              ;
-;     Total combinational functions  ; 137                                              ;
-;     Dedicated logic registers      ; 41                                               ;
-; Total registers                    ; 41                                               ;
-; Total pins                         ; 9                                                ;
+; Total logic elements               ; 179                                              ;
+;     Total combinational functions  ; 179                                              ;
+;     Dedicated logic registers      ; 44                                               ;
+; Total registers                    ; 44                                               ;
+; Total pins                         ; 44                                               ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 0                                                ;
 ; Embedded Multiplier 9-bit elements ; 0                                                ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/27/2019 17:35:23 ;
+; Start date & time ; 10/04/2019 17:29:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_timer_de2_115   ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 79965022112691.156961652217323        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 79965022112691.157022094909665        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; IP_TOOL_NAME                        ; ALTPLL                                ; --            ; --          ; --             ;
@@ -99,8 +99,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 400 MB              ; 00:00:06                           ;
-; Total                ; 00:00:07     ; --                      ; --                  ; 00:00:06                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 404 MB              ; 00:00:07                           ;
+; Total                ; 00:00:07     ; --                      ; --                  ; 00:00:07                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
