@@ -5,6 +5,7 @@ use ieee.numeric_std.all;
 entity top_timer_de2_115 is
 	port 
 	(
+		 controle: in std_logic_vector(2 downto 0);
     	CLOCK_50: in std_logic;
 		KEY		: in std_logic_vector (0 downto 0);
 		HEX0	: out std_logic_vector (6 downto 0);
@@ -69,6 +70,7 @@ architecture top_a3_2019_2 of top_timer_de2_115 is
 	 signal dout5	:  std_logic_vector (6 downto 0);
 	 signal dout6	:  std_logic_vector (6 downto 0);
 	 signal saidaconversor : std_logic_vector (6 downto 0);
+	
 	 
 begin
 
@@ -82,6 +84,7 @@ begin
 	 if (reset='1') then
 	    r_reg <= (others=>'0');
 		 r_reg360 <= (others=>'0');
+		 ctrl <= (others=>'0');
 	 elsif (CLOCK_10khz'event and CLOCK_10khz='1') then
 	    r_reg <= r_next;
 		 r_reg360 <= r_next360;
@@ -89,38 +92,37 @@ begin
 	 end if;
 	end process;
 	
-
-	
-	
-
 	-- next-state logic
 	r_next  <=  (others=>'0') when r_reg=9999 else 
 				r_reg + 1;
 				
-	r_next360  <=  (others=>'0') when r_reg360=27 else 
+	r_next360  <=  (others=>'0') when r_reg360=28 else 
 				r_reg360 + 1;			
 	
-	
-	
 	ctrl_next <= (others=>'0') when en360hz = '1' AND ctrl = 6 else					
-				(ctrl + 1) when en360hz = '1' AND ctrl < 6 else 
+				(ctrl + 1) when en360hz = '1' else 
 				ctrl;
+	
+	-- output logic
+	en360hz <= '1' when r_reg360 = 28 else '0';
+	
+	en1hz <= '1' when r_reg = 9999 else '0'; --- enable em 1 hz
 	
 	
 	mux_tobcd: with ctrl select
-	tobcd <= SecU when "000",
-				SecT when "001",
-				MinU when "010",
-	 		   MinT when "011",
-				HourU when "100",
+	tobcd <= SecU when (13 downto 3 => '0') & "000",
+				SecT when (13 downto 3 => '0') & "001",
+				MinU when (13 downto 3 => '0') & "010",
+	 		   MinT when (13 downto 3 => '0') & "011",
+				HourU when (13 downto 3 => '0') & "101",
 				HourT when others;
 				
 	demux_tohex: with ctrl select
-			dout <= ((41 downto 7 => '0') & saidaconversor) when "000",
-					  ((41 downto 14 => '0') & saidaconversor & (6 downto 0 => '0')) when "001",
-						((41 downto 22  => '0') & saidaconversor & (14 downto 0 => '0')) when "010",
-						((41 downto 29=> '0') & saidaconversor & (21 downto 0 => '0')) when "011",
-						((41 downto 36 => '0') & saidaconversor & (28 downto 0 => '0')) when "100",
+			dout <= ((41 downto 7 => '0') & saidaconversor) when (13 downto 3 => '0') & "000",
+					  ((41 downto 14 => '0') & saidaconversor & (6 downto 0 => '0')) when (13 downto 3 => '0') & "001",
+						((41 downto 21  => '0') & saidaconversor & (13 downto 0 => '0')) when (13 downto 3 => '0') & "010",
+						((41 downto 28=> '0') & saidaconversor & (20 downto 0 => '0')) when (13 downto 3 => '0') & "011",
+						((41 downto 35 => '0') & saidaconversor & (27 downto 0 => '0')) when (13 downto 3 => '0') & "100",
 						(saidaconversor & (34 downto 0 => '0') ) when others;
 						
 			HEX0 <= dout(6 downto 0);
@@ -130,12 +132,7 @@ begin
 			HEX4 <= dout(34 downto 28);
 			HEX5 <= dout(41 downto 35);
  	
-	
-	-- output logic
-	en360hz <= '1' when r_reg360 = 28 else '0';
-	
-	en1hz <= '1' when r_reg = 9999 else '0'; --- enable em 1 hz
-				 
+			 
 				 
     t0:   timer port map( clk   => CLOCK_10khz,
                           reset => reset,
