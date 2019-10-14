@@ -13,8 +13,10 @@ entity top_timer_de2_115 is
 		HEX2	: out std_logic_vector (6 downto 0);
 		HEX3	: out std_logic_vector (6 downto 0);
 		HEX4	: out std_logic_vector (6 downto 0);
+		led_ctrl : out std_logic;
 		HEX5	: out std_logic_vector (6 downto 0)
 	);
+	
 
 end entity;
 
@@ -96,7 +98,7 @@ begin
 	r_next  <=  (others=>'0') when r_reg=9999 else 
 				r_reg + 1;
 				
-	r_next360  <=  (others=>'0') when r_reg360=28 else 
+	r_next360  <=  (others=>'0') when r_reg360=27 else 
 				r_reg360 + 1;			
 	
 	ctrl_next <= (others=>'0') when en360hz = '1' AND ctrl = 6 else					
@@ -104,26 +106,27 @@ begin
 				ctrl;
 	
 	-- output logic
-	en360hz <= '1' when r_reg360 = 28 else '0';
+	en360hz <= '1' when r_reg360 = 27 else '0';
 	
 	en1hz <= '1' when r_reg = 9999 else '0'; --- enable em 1 hz
 	
+	led_ctrl <= '1' when ctrl = 0 else '0';	
 	
 	mux_tobcd: with ctrl select
-	tobcd <= SecU when (13 downto 3 => '0') & "000",
-				SecT when (13 downto 3 => '0') & "001",
-				MinU when (13 downto 3 => '0') & "010",
-	 		   MinT when (13 downto 3 => '0') & "011",
-				HourU when (13 downto 3 => '0') & "101",
+	tobcd <= SecU when  "000",
+				SecT when  "001",
+				MinU when  "010",
+	 		   MinT when  "011",
+				HourU when  "101",
 				HourT when others;
 				
 	demux_tohex: with ctrl select
-			dout <= ((41 downto 7 => '0') & saidaconversor) when (13 downto 3 => '0') & "000",
-					  ((41 downto 14 => '0') & saidaconversor & (6 downto 0 => '0')) when (13 downto 3 => '0') & "001",
-						((41 downto 21  => '0') & saidaconversor & (13 downto 0 => '0')) when (13 downto 3 => '0') & "010",
-						((41 downto 28=> '0') & saidaconversor & (20 downto 0 => '0')) when (13 downto 3 => '0') & "011",
-						((41 downto 35 => '0') & saidaconversor & (27 downto 0 => '0')) when (13 downto 3 => '0') & "100",
-						(saidaconversor & (34 downto 0 => '0') ) when others;
+			dout <= ((41 downto 7 => '1') &  saidaconversor) when  "000",
+					  ((41 downto 14 => '1') &  saidaconversor & (6 downto 0 => '1')) when  "001",
+						((41 downto 21  => '1') &  saidaconversor & (13 downto 0 => '1')) when  "010",
+						((41 downto 28=> '1') &  saidaconversor & (20 downto 0 => '1')) when  "011",
+						((41 downto 35 => '1') &  saidaconversor & (27 downto 0 => '1')) when "100",
+						(saidaconversor & (34 downto 0 => '1') ) when others;
 						
 			HEX0 <= dout(6 downto 0);
 			HEX1 <= dout(13 downto 7);
@@ -154,7 +157,7 @@ begin
 --	bcd1: bcd2ssd port map (BCD => secT,
 --	                        SSD => HEX1 );
 --    bcd2: bcd2ssd port map (BCD => minU,
---	                        SSD => HEX2 );							
+--	                        SSD =60> HEX2 );							
 --	bcd3: bcd2ssd port map (BCD => minT,
 --	                        SSD => HEX3 );						  
 --	bcd4: bcd2ssd port map (BCD => hourU,

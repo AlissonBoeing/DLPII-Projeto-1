@@ -10,6 +10,7 @@ entity timer is
 		minU, minT : out std_logic_vector(3 downto 0);
 		hourU, hourT : out std_logic_vector(3 downto 0)
 	);
+	
 
 end entity;
 
