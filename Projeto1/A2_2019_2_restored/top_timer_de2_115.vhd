@@ -5,6 +5,10 @@ use ieee.numeric_std.all;
 entity top_timer_de2_115 is
 	port 
 	(
+		bStop_top: in std_logic;
+		alarm_out_led: out std_logic;
+		bSleep_top: in std_logic;
+		load_in_top: in std_logic_vector(2 downto 0);
 		CLOCK_50: in std_logic;
 		KEY		: in std_logic_vector (0 downto 0);
 		HEX0	: out std_logic_vector (6 downto 0);
@@ -12,7 +16,6 @@ entity top_timer_de2_115 is
 		HEX2	: out std_logic_vector (6 downto 0);
 		HEX3	: out std_logic_vector (6 downto 0);
 		HEX4	: out std_logic_vector (6 downto 0);
-		led_ctrl : out std_logic;
 		HEX5	: out std_logic_vector (6 downto 0)
 	);
 	
@@ -29,7 +32,19 @@ architecture top_a3_2019_2 of top_timer_de2_115 is
 		);
 	end component;
 	
+component snooze is
+   port(
+      clk, reset: in std_logic;
+      bStop, bSleep: in std_logic;
+		load_in: in std_logic_vector(2 downto 0);
+		secUreal, minUreal: in std_logic_vector(3 downto 0);
+		secTreal, minTreal: in std_logic_vector(2 downto 0);
+		hourUreal, hourTreal: in std_logic_vector(1 downto 0);				
+		alarm_out: out std_logic      		
+   );
 	
+end component ;
+
 	
     component timer
     	port 
@@ -107,7 +122,7 @@ begin
 --	r_next360  <=  (others=>'0') when r_reg360=27 else 
 --				r_reg360 + 1;			
 --	
---	ctrl_next <= (others=>'0') when en360hz = '1' AND ctrl = 6 else					
+--	ctrl_next <= (others=>create_clock -name CLK50MHz -period 50MHz [get_ports {CLOCK_50}]  '0') when en360hz = '1' AND ctrl = 6 else					
 --				(ctrl + 1) when en360hz = '1' else 
 --				ctrl;
 	
@@ -155,6 +170,24 @@ begin
 
 								  
 								  
+								  
+	snooze1: snooze port map(
+	      clk => CLOCK_10khz,
+			reset => reset,
+			bStop => bStop_top,
+			bSleep => bSleep_top,
+			load_in => load_in_top,
+			secUreal => SecU,
+			minUreal => MinU,
+			secTreal => SecT,
+			minTreal => minT,
+			hourUreal => hourU,
+			hourTreal => hourT,
+			alarm_out => alarm_out_led);
+	
+	
+	
+
 								  
     bcd0: bcd2ssd port map (BCD => secU,
 	                        SSD => HEX0 );

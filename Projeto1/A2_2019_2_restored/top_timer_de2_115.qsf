@@ -104,6 +104,13 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_location_assignment PIN_E21 -to led_ctrl
 set_global_assignment -name VHDL_FILE output_files/lfsr_7_plain.vhd
+set_global_assignment -name VHDL_FILE snooze.vhd
+set_location_assignment PIN_AB28 -to load_in_top[0]
+set_location_assignment PIN_AC28 -to load_in_top[1]
+set_location_assignment PIN_AC27 -to load_in_top[2]
+set_location_assignment PIN_R24 -to bSleep_top
+set_location_assignment PIN_N21 -to bStop_top
+set_location_assignment PIN_G22 -to alarm_out_led
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

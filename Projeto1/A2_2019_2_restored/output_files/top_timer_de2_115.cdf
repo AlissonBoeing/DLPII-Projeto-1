@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("/home/aluno/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/output_files/") File("top_timer_de2_115.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("/home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/output_files/") File("top_timer_de2_115.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -1,0 +1,6 @@
+
+State Machine - |top_timer_de2_115|snooze:snooze1|state_reg
+Name state_reg.sleep_waiting state_reg.alarm_ring state_reg.idle 
+state_reg.idle 0 0 0 
+state_reg.alarm_ring 0 1 1 
+state_reg.sleep_waiting 1 0 1 
