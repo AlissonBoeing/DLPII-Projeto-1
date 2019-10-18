@@ -5,8 +5,7 @@ use ieee.numeric_std.all;
 entity top_timer_de2_115 is
 	port 
 	(
-		 controle: in std_logic_vector(2 downto 0);
-    	CLOCK_50: in std_logic;
+		CLOCK_50: in std_logic;
 		KEY		: in std_logic_vector (0 downto 0);
 		HEX0	: out std_logic_vector (6 downto 0);
 		HEX1	: out std_logic_vector (6 downto 0);
@@ -35,10 +34,13 @@ architecture top_a3_2019_2 of top_timer_de2_115 is
     component timer
     	port 
     	(
-        	clk, reset, en : in std_logic;
-    		secU, secT : out std_logic_vector(3 downto 0);
-    		minU, minT : out std_logic_vector(3 downto 0);
-    		hourU, hourT : out std_logic_vector(3 downto 0)
+		clk, reset, en : in std_logic;
+		secU: out std_logic_vector(3 downto 0);
+		secT: out std_logic_vector(2 downto 0);
+		minU: out std_logic_vector(3 downto 0);
+		minT : out std_logic_vector(2 downto 0);
+		hourU: out std_logic_vector(1 downto 0);
+		hourT : out std_logic_vector(1 downto 0)
     	);
     end component;
 	
@@ -51,9 +53,12 @@ architecture top_a3_2019_2 of top_timer_de2_115 is
 
 	end component;
 	
-    signal secU, secT: std_logic_vector(3 downto 0);
-    signal minU, minT: std_logic_vector(3 downto 0);
-    signal hourU, hourT: std_logic_vector(3 downto 0);
+ 	 signal secU:  std_logic_vector(3 downto 0);
+	 signal	secT:  std_logic_vector(2 downto 0);
+	 signal minU:  std_logic_vector(3 downto 0);
+	 signal minT :  std_logic_vector(2 downto 0);
+	 signal hourU:  std_logic_vector(1 downto 0);
+	 signal hourT: std_logic_vector(1 downto 0);
 	 signal r_reg, r_next: unsigned(13 downto 0);
 	 signal r_reg360, r_next360: unsigned(4 downto 0);
 	 signal reset,CLOCK_1Hz, CLOCK_10khz: std_logic;
@@ -81,7 +86,7 @@ begin
 	pll0: PLL port map (inclk0 => CLOCK_50,
 	                        c0 => CLOCK_10khz );
 	
-	process(CLOCK_50,reset)
+	process(CLOCK_50,reset, CLOCK_10khz)
 	begin
 	 if (reset='1') then
 	    r_reg <= (others=>'0');
@@ -97,6 +102,7 @@ begin
 	-- next-state logic
 	r_next  <=  (others=>'0') when r_reg=9999 else 
 				r_reg + 1;
+				
 				
 	r_next360  <=  (others=>'0') when r_reg360=27 else 
 				r_reg360 + 1;			
@@ -114,11 +120,11 @@ begin
 	
 	mux_tobcd: with ctrl select
 	tobcd <= SecU when  "000",
-				SecT when  "001",
+				"0" & SecT when  "001",
 				MinU when  "010",
-	 		   MinT when  "011",
-				HourU when  "101",
-				HourT when others;
+	 		   "0" & MinT when  "011",
+				"00" & HourU when  "101",
+				"00" & HourT when others;
 				
 	demux_tohex: with ctrl select
 			dout <= ((41 downto 7 => '1') &  saidaconversor) when  "000",
@@ -165,10 +171,6 @@ begin
 --    bcd5: bcd2ssd port map (BCD => hourT,
 --	                        SSD => HEX5 );
 							
-
-
-
-
-					  	  
+			  	  
 end top_a3_2019_2;
 

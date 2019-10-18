@@ -1,5 +1,5 @@
 Archive Project report for top_timer_de2_115
-Fri Sep 20 17:19:12 2019
+Thu Oct 17 19:22:13 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -35,9 +35,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Fri Sep 20 17:19:12 2019 ;
+; Archive Project Status ; Successful - Thu Oct 17 19:22:13 2019 ;
 ; Revision Name          ; top_timer_de2_115                     ;
-; Top-level Entity Name  ; timer                                 ;
+; Top-level Entity Name  ; top_timer_de2_115                     ;
 ; Family                 ; Cyclone IV E                          ;
 +------------------------+---------------------------------------+
 
@@ -50,16 +50,16 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive '/home/aluno/Projeto1.qar'
+Info: Generated archive '/home/aluno/Documentos/Teste.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'top_timer_de2_115.archive.rpt'
 Info (23030): Evaluation of Tcl script /opt/altera/13.0sp1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 274 megabytes
-    Info: Processing ended: Fri Sep 20 17:19:12 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 278 megabytes
+    Info: Processing ended: Thu Oct 17 19:22:13 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
 +--------------------------------------------------------------+
@@ -71,6 +71,7 @@ Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
 ; bcd2ssd.vhd                                                  ;
 ; bcd_timer_2019_2.qpf                                         ;
 ; incremental_db/compiled_partitions/top_timer_de2_115.db_info ;
+; output_files/lfsr_7_plain.vhd                                ;
 ; PLL.cmp                                                      ;
 ; PLL.ppf                                                      ;
 ; PLL.qip                                                      ;
