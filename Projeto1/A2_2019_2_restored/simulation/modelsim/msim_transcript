@@ -1,0 +1,64 @@
+# do top_timer_de2_115_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db {/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module PLL_altpll
+# 
+# Top level modules:
+# 	PLL_altpll
+# vcom -93 -work work {/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity top_timer_de2_115
+# -- Compiling architecture top_a3_2019_2 of top_timer_de2_115
+# ** Error: /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd(195): (vcom-1436) Actual expression (infix expression) of formal "BCD" is not globally static.
+# ** Error: /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd(199): (vcom-1436) Actual expression (infix expression) of formal "BCD" is not globally static.
+# ** Error: /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd(201): (vcom-1436) Actual expression (infix expression) of formal "BCD" is not globally static.
+# ** Error: /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd(203): (vcom-1436) Actual expression (infix expression) of formal "BCD" is not globally static.
+# ** Error: /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd(207): VHDL Compiler exiting
+# ** Error: /opt/altera/13.0sp1/modelsim_ae/linuxaloem/vcom failed.
+# Error in macro ./top_timer_de2_115_run_msim_rtl_vhdl.do line 9
+# /opt/altera/13.0sp1/modelsim_ae/linuxaloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd}"
+vsim work.top_timer_de2_115
+# vsim work.top_timer_de2_115 
+# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.19.0-6-amd64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/simulation/modelsim/rtl_work.top_timer_de2_115' has no architecture.
+# Error loading design
+vsim rtl_work.top_timer_de2_115
+# vsim rtl_work.top_timer_de2_115 
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/simulation/modelsim/rtl_work.top_timer_de2_115' has no architecture.
+# Error loading design
+vsim work.top_timer_de2_115
+# vsim work.top_timer_de2_115 
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/simulation/modelsim/rtl_work.top_timer_de2_115' has no architecture.
+# Error loading design
+vsim work.top_timer_de2_115
+# vsim work.top_timer_de2_115 
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/simulation/modelsim/rtl_work.top_timer_de2_115' has no architecture.
+# Error loading design

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_timer_de2_115
-Fri Oct 18 20:17:08 2019
+Mon Oct 21 10:30:04 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -15,7 +15,7 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
   9. State Machine - |top_timer_de2_115|snooze:snooze1|state_reg
- 10. User-Specified and Inferred Latches
+ 10. Logic Cells Representing Combinational Loops
  11. Registers Removed During Synthesis
  12. General Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
@@ -52,13 +52,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct 18 20:17:08 2019            ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 21 10:30:04 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; top_timer_de2_115                                ;
 ; Top-level Entity Name              ; top_timer_de2_115                                ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 115                                              ;
-;     Total combinational functions  ; 115                                              ;
+; Total logic elements               ; 110                                              ;
+;     Total combinational functions  ; 110                                              ;
 ;     Dedicated logic registers      ; 34                                               ;
 ; Total registers                    ; 34                                               ;
 ; Total pins                         ; 50                                               ;
@@ -161,8 +161,8 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 2           ;
@@ -170,27 +170,27 @@ applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ; < 0.1%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                              ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
-; top_timer_de2_115.vhd            ; yes             ; User VHDL File               ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd ;         ;
-; bcd2ssd.vhd                      ; yes             ; User VHDL File               ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/bcd2ssd.vhd           ;         ;
-; timer.vhd                        ; yes             ; User VHDL File               ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/timer.vhd             ;         ;
-; PLL.vhd                          ; yes             ; User Wizard-Generated File   ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/PLL.vhd               ;         ;
-; snooze.vhd                       ; yes             ; User VHDL File               ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/snooze.vhd            ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altpll.tdf                        ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                    ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/stratix_pll.inc                   ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/stratixii_pll.inc                 ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/cycloneii_pll.inc                 ;         ;
-; db/PLL_altpll.v                  ; yes             ; Auto-Generated Megafunction  ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v       ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; top_timer_de2_115.vhd            ; yes             ; User VHDL File               ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd ;         ;
+; bcd2ssd.vhd                      ; yes             ; User VHDL File               ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/bcd2ssd.vhd           ;         ;
+; timer.vhd                        ; yes             ; User VHDL File               ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/timer.vhd             ;         ;
+; PLL.vhd                          ; yes             ; User Wizard-Generated File   ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/PLL.vhd               ;         ;
+; snooze.vhd                       ; yes             ; User VHDL File               ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/snooze.vhd            ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altpll.tdf                      ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                  ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/stratix_pll.inc                 ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/stratixii_pll.inc               ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/cycloneii_pll.inc               ;         ;
+; db/PLL_altpll.v                  ; yes             ; Auto-Generated Megafunction  ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v       ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -198,16 +198,16 @@ applicable agreement for further details.
 +---------------------------------------------+-----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                       ;
 +---------------------------------------------+-----------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 115                                                                         ;
+; Estimated Total logic elements              ; 110                                                                         ;
 ;                                             ;                                                                             ;
-; Total combinational functions               ; 115                                                                         ;
+; Total combinational functions               ; 110                                                                         ;
 ; Logic element usage by number of LUT inputs ;                                                                             ;
 ;     -- 4 input functions                    ; 50                                                                          ;
-;     -- 3 input functions                    ; 32                                                                          ;
+;     -- 3 input functions                    ; 27                                                                          ;
 ;     -- <=2 input functions                  ; 33                                                                          ;
 ;                                             ;                                                                             ;
 ; Logic elements by mode                      ;                                                                             ;
-;     -- normal mode                          ; 102                                                                         ;
+;     -- normal mode                          ; 97                                                                          ;
 ;     -- arithmetic mode                      ; 13                                                                          ;
 ;                                             ;                                                                             ;
 ; Total registers                             ; 34                                                                          ;
@@ -221,8 +221,8 @@ applicable agreement for further details.
 ;                                             ;                                                                             ;
 ; Maximum fan-out node                        ; PLL:pll0|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0] ;
 ; Maximum fan-out                             ; 35                                                                          ;
-; Total fan-out                               ; 558                                                                         ;
-; Average fan-out                             ; 2.23                                                                        ;
+; Total fan-out                               ; 543                                                                         ;
+; Average fan-out                             ; 2.22                                                                        ;
 +---------------------------------------------+-----------------------------------------------------------------------------+
 
 
@@ -231,29 +231,29 @@ applicable agreement for further details.
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; |top_timer_de2_115                   ; 115 (26)          ; 34 (14)      ; 0           ; 0            ; 0       ; 0         ; 50   ; 0            ; |top_timer_de2_115                                                            ; work         ;
+; |top_timer_de2_115                   ; 110 (26)          ; 34 (14)      ; 0           ; 0            ; 0       ; 0         ; 50   ; 0            ; |top_timer_de2_115                                                            ; work         ;
 ;    |PLL:pll0|                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|PLL:pll0                                                   ; work         ;
 ;       |altpll:altpll_component|      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|PLL:pll0|altpll:altpll_component                           ; work         ;
 ;          |PLL_altpll:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|PLL:pll0|altpll:altpll_component|PLL_altpll:auto_generated ; work         ;
 ;    |bcd2ssd:bcd0|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd0                                               ; work         ;
 ;    |bcd2ssd:bcd1|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd1                                               ; work         ;
 ;    |bcd2ssd:bcd2|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd2                                               ; work         ;
-;    |bcd2ssd:bcd3|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd3                                               ; work         ;
+;    |bcd2ssd:bcd3|                    ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd3                                               ; work         ;
 ;    |bcd2ssd:bcd4|                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd4                                               ; work         ;
 ;    |bcd2ssd:bcd5|                    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|bcd2ssd:bcd5                                               ; work         ;
-;    |snooze:snooze1|                  ; 25 (25)           ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|snooze:snooze1                                             ; work         ;
-;    |timer:t0|                        ; 32 (32)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|timer:t0                                                   ; work         ;
+;    |snooze:snooze1|                  ; 21 (21)           ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|snooze:snooze1                                             ; work         ;
+;    |timer:t0|                        ; 30 (30)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_timer_de2_115|timer:t0                                                   ; work         ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                                 ;
-+--------+--------------+---------+--------------+--------------+-----------------------------+-------------------------------------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance             ; IP Include File                                                         ;
-+--------+--------------+---------+--------------+--------------+-----------------------------+-------------------------------------------------------------------------+
-; Altera ; ALTPLL       ; 13.0    ; N/A          ; N/A          ; |top_timer_de2_115|PLL:pll0 ; /home/aluno/Imagens/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/PLL.vhd ;
-+--------+--------------+---------+--------------+--------------+-----------------------------+-------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                               ;
++--------+--------------+---------+--------------+--------------+-----------------------------+-----------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance             ; IP Include File                                                       ;
++--------+--------------+---------+--------------+--------------+-----------------------------+-----------------------------------------------------------------------+
+; Altera ; ALTPLL       ; 13.0    ; N/A          ; N/A          ; |top_timer_de2_115|PLL:pll0 ; /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/PLL.vhd ;
++--------+--------------+---------+--------------+--------------+-----------------------------+-----------------------------------------------------------------------+
 
 
 Encoding Type:  One-Hot
@@ -268,27 +268,27 @@ Encoding Type:  One-Hot
 +-------------------------+-------------------------+----------------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                      ;
-+----------------------------------------------------+----------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal        ; Free of Timing Hazards ;
-+----------------------------------------------------+----------------------------+------------------------+
-; snooze:snooze1|minSleep[0]                         ; snooze:snooze1|minSleep[1] ; yes                    ;
-; snooze:snooze1|minSleep[1]                         ; snooze:snooze1|minSleep[1] ; yes                    ;
-; snooze:snooze1|minSleep[2]                         ; snooze:snooze1|minSleep[1] ; yes                    ;
-; Number of user-specified and inferred latches = 3  ;                            ;                        ;
-+----------------------------------------------------+----------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; snooze:snooze1|state_reg.idle         ; Lost fanout        ;
-; Total Number of Removed Registers = 1 ;                    ;
-+---------------------------------------+--------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; snooze:snooze1|LessThan1~0                             ;   ;
+; snooze:snooze1|LessThan1~1                             ;   ;
+; snooze:snooze1|LessThan1~2                             ;   ;
+; Number of logic cells representing combinational loops ; 3 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; snooze:snooze1|state_reg.sleep_waiting ; Lost fanout        ;
+; Total Number of Removed Registers = 1  ;                    ;
++----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -306,18 +306,19 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|sec_regU[3]  ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|min_regU[3]  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|min_regT[1]  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|hour_regU[1] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|hour_regT[1] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|sec_regT[2]  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|sec_regU[3]              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|min_regU[0]              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|min_regT[0]              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|hour_regU[0]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|hour_regT[1]             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_timer_de2_115|timer:t0|sec_regT[1]              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top_timer_de2_115|snooze:snooze1|minSleep_signal[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------+
@@ -762,9 +763,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Oct 18 20:17:05 2019
+    Info: Processing started: Mon Oct 21 10:29:57 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bcd_timer_2019_2 -c top_timer_de2_115
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file top_timer_de2_115.vhd
     Info (12022): Found design unit 1: top_timer_de2_115-top_a3_2019_2
     Info (12023): Found entity 1: top_timer_de2_115
@@ -847,17 +848,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/PLL_
 Info (12128): Elaborating entity "PLL_altpll" for hierarchy "PLL:pll0|altpll:altpll_component|PLL_altpll:auto_generated"
 Info (12128): Elaborating entity "timer" for hierarchy "timer:t0"
 Info (12128): Elaborating entity "snooze" for hierarchy "snooze:snooze1"
-Warning (10631): VHDL Process Statement warning at snooze.vhd(68): inferring latch(es) for signal or variable "minSleep", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "minSleep[0]" at snooze.vhd(68)
-Info (10041): Inferred latch for "minSleep[1]" at snooze.vhd(68)
-Info (10041): Inferred latch for "minSleep[2]" at snooze.vhd(68)
 Info (12128): Elaborating entity "bcd2ssd" for hierarchy "bcd2ssd:bcd0"
-Warning (13012): Latch snooze:snooze1|minSleep[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal timer:t0|min_regT[2]
-Warning (13012): Latch snooze:snooze1|minSleep[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal timer:t0|min_regT[2]
-Warning (13012): Latch snooze:snooze1|minSleep[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal timer:t0|min_regT[2]
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX4[1]" is stuck at GND
     Warning (13410): Pin "HEX5[1]" is stuck at GND
@@ -865,15 +856,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 167 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 162 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 43 output pins
-    Info (21061): Implemented 116 logic cells
+    Info (21061): Implemented 111 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 400 megabytes
-    Info: Processing ended: Fri Oct 18 20:17:08 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:04
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 430 megabytes
+    Info: Processing ended: Mon Oct 21 10:30:04 2019
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:05
 
 

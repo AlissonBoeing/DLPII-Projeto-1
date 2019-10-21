@@ -1,0 +1,46 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/simulation/modelsim
+vPLL_altpll
+I01oDGo341Hce7>L9VnHb11
+VU`o4zgCB1zOD8Tl1J3enU1
+Z1 d/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/simulation/modelsim
+w1571529202
+8/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v
+F/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v
+L0 29
+Z2 OV;L;10.1d;51
+r1
+31
+o-vlog01compat -work work -O0
+n@p@l@l_altpll
+!i10b 1
+!s100 LIB41<BZRZ0Nmb?1f2i`73
+!s85 0
+!s108 1571585211.521941
+!s107 /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db|/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db/PLL_altpll.v|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/db -O0
+Etop_timer_de2_115
+w1571529215
+Z3 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+R1
+8/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd
+F/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd
+l0
+L5
+V^7f^kRO8ZYUgzPBaJbaXf1
+!s100 f39S6c]G7W1[8B_kMk4ah3
+Z6 OV;C;10.1d;51
+31
+!i10b 1
+!s108 1571585212.144637
+!s90 -reportprogress|300|-93|-work|work|/home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd|
+!s107 /home/alisson.b11/DLPII-Projeto-1/Projeto1/A2_2019_2_restored/top_timer_de2_115.vhd|
+o-93 -work work -O0
+Z7 tExplicit 1

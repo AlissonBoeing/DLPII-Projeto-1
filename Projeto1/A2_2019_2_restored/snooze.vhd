@@ -35,7 +35,7 @@ architecture snoozemachine of snooze is
 	signal hourUtimerS: std_logic_vector(1 downto 0);	 
 	signal hourTtimerS: std_logic_vector(1 downto 0);	
 	signal minSleep: std_logic_vector(2 downto 0);	
-   signal minTtimer_signal: std_logic_vector(2 downto 0);
+   signal minSleep_signal: std_logic_vector(2 downto 0);
 begin
 
 	alarm_load: with load_in select
@@ -43,8 +43,9 @@ begin
 						"010" when "010",
 						"001" when others;
 	
+	minSleep <= std_logic_vector(resize(unsigned(minTreal) + 1,minSleep'length)) when bsleep = '0' AND unsigned(minTreal) < x"5" else "000" when unsigned(minTreal) = x"5" AND bsleep = '0' else minSleep_signal;
 	
-	
+	minSleep_signal <= minSleep;
 	
 	hourTtimer <= hourTreal;
 	hourUtimer <= hourUreal;
@@ -70,6 +71,7 @@ begin
    -- minSleep <=std_logic_vector(resize(unsigned(minTtimer) + 1, minSleep'length));
      case state_reg is
        when idle =>
+		 --minSleep <= "000";
          if (hourTtimer = "00" AND hourUtimer = "00" AND minUtimer = "0000" AND secTtimer = "000" AND secUtimer = "0000" AND minTtimer = minTreal) then
 				state_next <= alarm_ring;
 			else
@@ -77,30 +79,30 @@ begin
 			end if;
 			
 		 when alarm_ring =>
+		-- minSleep <= "000";
 			if(bStop = '0') then
 				state_next <= idle;
 			else			
 				if(bSleep = '0') then
-					if(unsigned(minTreal) < x"5") then
-						minSleep <= std_logic_vector(resize(unsigned(minTreal) + 1,minSleep'length));
-					elsif(unsigned(minTreal) = x"5") then
-						minSleep <= "000";
-					else 
-						minSleep <= minSleep;
-					end if;
+					--if(unsigned(minTreal) < x"5") then
+					--	minSleep <= ;
+					---elsif(unsigned(minTreal) = x"5") then
+					--	minSleep <= "000";
+				--	else 
+						--minSleep <= minSleep;
+					--end if;
 					state_next <= sleep_waiting;
 				else
 					state_next <= alarm_ring;
+					--minSleep <= "000";
 				end if;
 			end if;
 		
 		 when sleep_waiting =>
-			if(minTreal = minSleep) then
+			if(minTreal >= minSleep) then
 				state_next <= alarm_ring;
-			elsif(minTreal < minSleep) then
-				state_next <= sleep_waiting;
 			else 
-				state_next <= idle;
+				state_next <= sleep_waiting;
 			end if;
       end case;
   end process;
